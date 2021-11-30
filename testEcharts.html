@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 1000px;
+            /* background-color: red; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="js/echarts.min.js"></script>
+    <script>
+        //初始化 echarts.init();
+        var myChart = echarts.init(document.querySelector(".box"));
+        // 指定配置项和数据
+        // 指定图表的配置项和数据
+        var option = option = {
+            // 设置线条颜色
+            color:["pink","red","yellow","green","grey"],
+            // 标题
+            title: {
+                text: '折线图堆叠'
+            },
+            // 图标提示框组件
+            tooltip: {
+                // 出发方式，坐标轴，item
+                trigger: 'axis'
+            },
+            // 图例组件
+            legend: {
+                data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+            },
+            // 网格配置，控制图标大小
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                // 显示刻度
+                containLabel: true
+            },
+            // 工具线组件
+            toolbox: {
+                feature: {
+                    // 保存图片的按钮
+                    saveAsImage: {}
+                }
+            },
+            // 设置x轴
+            xAxis: {
+                // 类目，value值，
+                type: 'category',
+                // 与坐标轴是否有缝隙
+                boundaryGap: false,
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            // 系列图标配置
+            series: [
+                // series有name之后就不需要legend里的data了
+                {
+                    
+                    name: '邮件营销',
+                    // 线可用bar(柱形)
+                    type: 'line',
+                    // 数据堆叠，相同的值就会做成数据相加的情况
+                    // stack: '总量',
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name: '联盟广告',
+                    type: 'line',
+                    // stack: '总量',
+                    data: [220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name: '视频广告',
+                    type: 'line',
+                    // stack: '总量',
+                    data: [150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name: '直接访问',
+                    type: 'line',
+                    // stack: '总量',
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name: '搜索引擎',
+                    type: 'line',
+                    // stack: '总量',
+                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ]
+        };
+        // 配置项给实例
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

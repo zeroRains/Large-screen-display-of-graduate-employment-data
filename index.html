@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毕业生就业数据展示</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body style="overflow-y: hidden;">
+    <!-- 头部的盒子 -->
+    <header>
+        <h1>毕业生就业数据展示</h1>
+        <div class="showTime"></div>
+        <!-- // 格式： 当前时间：2020年3月17-0时54分14秒 -->
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000);//開始运行
+            function time() {
+                clearTimeout(t);//清除定时器
+                dt = new Date();
+                var y = dt.getFullYear();
+                var mt = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var h = dt.getHours();//获取时
+                var m = dt.getMinutes();//获取分
+                var s = dt.getSeconds();//获取秒
+                document.querySelector(".showTime").innerHTML = '当前时间：' + y + "年" + mt + "月" + day + "-" + h + "时" + m + "分" + s + "秒";
+                t = setTimeout(time, 1000); //设定定时器，循环运行     
+            }
+        </script>
+    </header>
+    <section class="mainbox">
+
+        <div class="column">
+            <div class="panel bar">
+                <h2>毕业生就业人数</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel line">
+                <h2>毕业生毕业率
+                </h2>
+                <div class="chart">图表</div>
+                <div class="panel-footer"></div>
+            </div>
+
+        </div>
+        <div class="column">
+            <div class="no">
+                <div class="no-hd">
+                    <ul>
+                        <li>123456</li>
+                        <li>100000</li>
+                    </ul>
+                </div>
+                <div class="no-bd">
+                    <ul>
+                        <li>计算机人才需求</li>
+                        <li>计算机供应人数</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 地图模块 -->
+            <div class="map">
+
+                <div class="map1"></div>
+                <div class="map2"></div>
+                <div class="map3"></div>
+                <div class="chart"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="panel bar2">
+                <h2>毕业生平均工资及就业率</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel line2">
+                <h2>就业公司类型</h2>
+                <div class="chart">图表</div>
+                <div class="panel-footer"></div>
+            </div>
+
+        </div>
+    </section>
+    <script src="js/flexible.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/china.js"></script>
+    <script src="js/myMap.js"></script>
+</body>
+
+</html>
